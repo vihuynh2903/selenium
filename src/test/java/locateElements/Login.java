@@ -1,15 +1,13 @@
 package locateElements;
 
-import Supports.Browser;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.How;
 
 import static Supports.Browser.*;
+import static locateElements.RedirectionTest.*;
 
 public class Login {
     public static void main(String[] args) throws InterruptedException {
-        openBrowser("chrome");
+        openBrowser("coccoc");  // https://apkily.com/coc-coc-beta
         visit("https://the-internet.herokuapp.com/login");
         //findElement(How.ID, "username");
         //findElement(How.ID, "password");

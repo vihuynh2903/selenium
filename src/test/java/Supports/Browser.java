@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +37,7 @@ public class Browser {
             driver = new EdgeDriver();
         }
         else if (name.equalsIgnoreCase("coccoc")){
-            System.setProperty("webdriver.chrome.driver","drivers\\msedgedriver.exe");
+            System.setProperty("webdriver.chrome.driver","drivers\\coccocdriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.setBinary("C:\\Users\\TranQuoc\\AppData\\Local\\CocCoc\\Browser\\Application\\browser.exe");
             driver = new ChromeDriver(options);
@@ -91,4 +92,52 @@ public class Browser {
     public static void click(How by, String locator){
         findElement(by, locator).click();
     }
+
+    public static void backToPreviousPage(){
+        driver.navigate().back();
+    }
+
+    public static void check(How how, String locator) {
+        if (!findElement(how, locator).isSelected())
+            click(how, locator);
+    }
+
+    public static void uncheck(How how, String locator) {
+        if (findElement(how, locator).isSelected())
+            click(how, locator);
+    }
+
+    public static void selectByIndex(How how, String locator, int byIndex) {
+        Select dropDown = new Select(findElement(how, locator));
+        dropDown.selectByIndex(byIndex);
+    }
+
+    public static void selectByValue(How how, String locator, String byValue) {
+        Select dropDown = new Select(findElement(how, locator));
+        dropDown.selectByValue(byValue);
+    }
+
+    public static void selectByVisibleText(How how, String locator, String visibleText) {
+        Select dropDown = new Select(findElement(how, locator));
+        dropDown.deselectByVisibleText(visibleText);
+    }
+
+    public static void acceptAlert() {
+        driver.switchTo().alert().accept();
+    }
+
+    public static void acceptWithText(String withText){
+        driver.switchTo().alert().sendKeys(withText);
+        driver.switchTo().alert().accept();
+    }
+
+    public static void  dismissAlert(){
+        driver.switchTo().alert().dismiss();
+    }
+
+    public static String getText(How how, String locator) {
+        return findElement(how, locator).getText();
+    }
+
+
 }
