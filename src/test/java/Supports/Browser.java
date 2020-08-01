@@ -138,4 +138,6 @@ public class Browser {
     public static String getText(How how, String locator) {
         return findElement(how, locator).getText();
     }
+
+
 }
