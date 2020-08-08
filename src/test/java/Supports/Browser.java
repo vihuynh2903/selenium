@@ -23,33 +23,32 @@ public class Browser {
     public static WebDriverWait wait;
     private static final int TIME_OUT_IN_SECOND = 60;
     //Selenium owner method
-    public static void openBrowser(String name){
+    public static WebDriver openBrowser(String name){
         if (name.equalsIgnoreCase("chrome")){
             System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
-            driver = new ChromeDriver();
+            return new ChromeDriver();
         }
         else if (name.equalsIgnoreCase("firefox")){
             System.setProperty("webdriver.gecko.driver","drivers\\geckodriver.exe");
-            driver = new FirefoxDriver();
+            return new FirefoxDriver();
         }
         else if (name.equalsIgnoreCase("ie")){
             System.setProperty("webdriver.ie.driver","drivers\\IEDriverServer.exe");
-            driver = new InternetExplorerDriver();
+            return new InternetExplorerDriver();
         }
         else if (name.equalsIgnoreCase("edge")){
             System.setProperty("webdriver.edge.driver","drivers\\msedgedriver.exe");
-            driver = new EdgeDriver();
+            return new EdgeDriver();
         }
         else if (name.equalsIgnoreCase("coccoc")){
             System.setProperty("webdriver.chrome.driver","drivers\\coccocdriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.setBinary("C:\\Users\\TranQuoc\\AppData\\Local\\CocCoc\\Browser\\Application\\browser.exe");
-            driver = new ChromeDriver(options);
+            return new ChromeDriver(options);
         }
         else {
             throw new IllegalArgumentException("The browser '" + name + "' does not support");
         }
-        wait = new WebDriverWait(driver, TIME_OUT_IN_SECOND);
     }
 
     public static void openHeadlessBrowser(String name){
@@ -90,12 +89,25 @@ public class Browser {
         return driver.findElement(by.buildBy(locator));
     }
 
+    public static WebElement findElement2(By by){
+        return driver.findElement(by);
+    }
+
     public static void fill(How by, String locator, String text){
         findElement(by, locator).sendKeys(text);
     }
 
+    public static void fill2(By by, String text){
+        findElement2(by).sendKeys(text);
+    }
+
+
     public static void click(How by, String locator){
         wait.until(ExpectedConditions.visibilityOfElementLocated(by.buildBy(locator))).click();
+    }
+
+    public static void click2(By by){
+        findElement2(by).click();
     }
 
     public static void backToPreviousPage(){
@@ -143,6 +155,8 @@ public class Browser {
     public static String getText(How how, String locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(how.buildBy(locator))).getText();
     }
-
+    public static String getText2(By by) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText();
+    }
 
 }
