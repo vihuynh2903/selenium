@@ -11,13 +11,17 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Browser {
     private static WebDriver driver;
+    public static WebDriverWait wait;
+    private static final int TIME_OUT_IN_SECOND = 60;
     //Selenium owner method
     public static void openBrowser(String name){
         if (name.equalsIgnoreCase("chrome")){
@@ -45,6 +49,7 @@ public class Browser {
         else {
             throw new IllegalArgumentException("The browser '" + name + "' does not support");
         }
+        wait = new WebDriverWait(driver, TIME_OUT_IN_SECOND);
     }
 
     public static void openHeadlessBrowser(String name){
@@ -90,7 +95,7 @@ public class Browser {
     }
 
     public static void click(How by, String locator){
-        findElement(by, locator).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by.buildBy(locator))).click();
     }
 
     public static void backToPreviousPage(){
@@ -136,7 +141,7 @@ public class Browser {
     }
 
     public static String getText(How how, String locator) {
-        return findElement(how, locator).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(how.buildBy(locator))).getText();
     }
 
 
