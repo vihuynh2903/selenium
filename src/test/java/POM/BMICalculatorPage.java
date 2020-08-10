@@ -15,7 +15,7 @@ public class BMICalculatorPage {
      * _BTN : --> button
      * _LBL : --> label
      * */
-    private final By metricTab = By.xpath("//a[.=''Metric Units]");
+    private final By metricTab = By.xpath("//a[.='Metric Units']");
     private final By ageTxt = By.id("cage");
     private final By maleRad = By.id("csex1");
     private final By femaleRad = By.id("csex2");

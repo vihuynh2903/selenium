@@ -9,14 +9,15 @@ import static Supports.Browser.*;
 
 public class BodyMassIndexTest {
     public static void main(String[] args) {
-        WebDriver driver = openBrowser("chrome");
+        openBrowser("chrome");
+        WebDriver driver = getDriver();
         visit("https://www.calculator.net/bmi-calculator.html");
 
         BMICalculatorPage calculator = new BMICalculatorPage();
 
         calculator.selectMetricTab();
         calculator.fillForm("26", "female", "153", "70");
-        calculator.getResult();
+        System.out.println(calculator.getResult());
     }
 
 }
