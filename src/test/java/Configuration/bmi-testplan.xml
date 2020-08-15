@@ -1,5 +1,14 @@
 <suite name="Boby Mass Index">
-    <test name="Metric Unit Tests">
+    <test name="Metric Unit Tests on Chrome">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://www.calculator.net/bmi-calculator.html"/>
+        <classes>
+            <class name="TestCases.BodyMassIndexTest"/>
+        </classes>
+    </test>
+    <test name="Metric Unit Tests on Firefox">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="url" value="https://www.calculator.net/bmi-calculator.html"/>
         <classes>
             <class name="TestCases.BodyMassIndexTest"/>
         </classes>

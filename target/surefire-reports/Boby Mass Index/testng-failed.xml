@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Boby Mass Index]" verbose="0">
+  <test thread-count="5" name="Metric Unit Tests on Firefox(failed)" verbose="0">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="url" value="https://www.calculator.net/bmi-calculator.html"/>
+    <classes>
+      <class name="TestCases.BodyMassIndexTest">
+        <methods>
+          <include name="preCondition"/>
+          <include name="metricCalculator"/>
+        </methods>
+      </class> <!-- TestCases.BodyMassIndexTest -->
+    </classes>
+  </test> <!-- Metric Unit Tests on Firefox(failed) -->
+</suite> <!-- Failed suite [Boby Mass Index] -->

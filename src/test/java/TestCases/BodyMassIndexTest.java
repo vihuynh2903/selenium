@@ -1,21 +1,24 @@
 package TestCases;
 
 import Functions.BMICalculatorFunction;
-import org.junit.Before;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import org.junit.Assert;
+
 import org.openqa.selenium.WebDriver;
 
 import static Supports.Browser.*;
 
 
-public class BodyMassIndexTest extends BMICalculatorFunction {
+public class BodyMassIndexTest{
+
+    @Parameters ({"browser","url"})
     @BeforeMethod
-    public static void preCondition(){
+    public static void preCondition(String browser, String url){
         WebDriver driver = getDriver();
-        openBrowser("chrome");
-        visit("https://www.calculator.net/bmi-calculator.html");
+        openBrowser(browser);
+        visit(url);
     }
 
     @Test (description = "Validate BMI calculator")
