@@ -23,28 +23,33 @@ public class Browser {
     public static WebDriverWait wait;
     private static final int TIME_OUT_IN_SECOND = 60;
     //Selenium owner method
-    public static WebDriver openBrowser(String name){
+
+    public static WebDriver getDriver(){
+        return driver;
+    }
+
+    public static void openBrowser(String name){
         if (name.equalsIgnoreCase("chrome")){
-            System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
-            return new ChromeDriver();
+            System.setProperty("webdriver.chrome.driver","drivers/chromedriver84_MAC");
+            driver = new ChromeDriver();
         }
         else if (name.equalsIgnoreCase("firefox")){
-            System.setProperty("webdriver.gecko.driver","drivers\\geckodriver.exe");
-            return new FirefoxDriver();
+            System.setProperty("webdriver.gecko.driver","drivers/geckodriver.exe");
+            driver = new FirefoxDriver();
         }
         else if (name.equalsIgnoreCase("ie")){
-            System.setProperty("webdriver.ie.driver","drivers\\IEDriverServer.exe");
-            return new InternetExplorerDriver();
+            System.setProperty("webdriver.ie.driver","drivers/IEDriverServer.exe");
+            driver = new InternetExplorerDriver();
         }
         else if (name.equalsIgnoreCase("edge")){
-            System.setProperty("webdriver.edge.driver","drivers\\msedgedriver.exe");
-            return new EdgeDriver();
+            System.setProperty("webdriver.edge.driver","drivers/msedgedriver.exe");
+            driver = new EdgeDriver();
         }
         else if (name.equalsIgnoreCase("coccoc")){
             System.setProperty("webdriver.chrome.driver","drivers\\coccocdriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.setBinary("C:\\Users\\TranQuoc\\AppData\\Local\\CocCoc\\Browser\\Application\\browser.exe");
-            return new ChromeDriver(options);
+            driver = new ChromeDriver(options);
         }
         else {
             throw new IllegalArgumentException("The browser '" + name + "' does not support");
@@ -98,6 +103,7 @@ public class Browser {
     }
 
     public static void fill2(By by, String text){
+        findElement2(by).clear();
         findElement2(by).sendKeys(text);
     }
 
@@ -156,7 +162,7 @@ public class Browser {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(how.buildBy(locator))).getText();
     }
     public static String getText2(By by) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText();
+        return findElement2(by).getText();
     }
 
 }
