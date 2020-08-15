@@ -7,8 +7,7 @@ import org.openqa.selenium.support.How;
 
 import static Supports.Browser.*;
 
-<<<<<<< HEAD:src/test/java/POM/BMICalculatorPage.java
-public class BMICalculatorPage {
+public class BMICalculatorFunction {
 
     /*locator naming convention
      * _TAB : --> tab
@@ -25,10 +24,6 @@ public class BMICalculatorPage {
     private final By weightTxt = By.id("ckg");
     private final By calculateBtn = By.xpath("//input[@value='Calculate']");
     private final By resultLbl = By.className("bigtext");
-
-=======
-public class BMICalculatorFunction extends BmiCalculatorPage{
->>>>>>> day-7:src/test/java/Functions/BMICalculatorFunction.java
 
     public void selectMetricTab(){
         //driver.findElement(By.xpath("//a[.=''Metric Units]")).click();

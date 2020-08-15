@@ -1,0 +1,7 @@
+<suite name="Boby Mass Index">
+    <test name="Metric Unit Tests">
+        <classes>
+            <class name="TestCases.BodyMassIndexTest"/>
+        </classes>
+    </test>
+</suite>

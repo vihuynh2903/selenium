@@ -24,13 +24,9 @@ public class Browser {
     private static final int TIME_OUT_IN_SECOND = 60;
     //Selenium owner method
 
-<<<<<<< HEAD
-    public static WebDriver getDriver(){return driver;}
-=======
     public static WebDriver getDriver(){
         return driver;
     }
->>>>>>> day-7
 
     public static void openBrowser(String name){
         if (name.equalsIgnoreCase("chrome")){

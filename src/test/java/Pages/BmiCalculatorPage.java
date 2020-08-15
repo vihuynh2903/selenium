@@ -10,12 +10,12 @@ public class BmiCalculatorPage {
      * _BTN : --> button
      * _LBL : --> label
      * */
-    public final By metricTab = By.xpath("//a[.='Metric Units']");
-    public final By ageTxt = By.id("cage");
-    public final By maleRad = By.id("csex1");
-    public final By femaleRad = By.id("csex2");
-    public final By heightTxt = By.id("cheightmeter");
-    public final By weightTxt = By.id("ckg");
-    public final By calculateBtn = By.xpath("//input[@value='Calculate']");
-    public final By resultLbl = By.className("bigtext");
+    protected By metricTab = By.xpath("//a[.='Metric Units']");
+    protected By ageTxt = By.id("cage");
+    protected By maleRad = By.id("csex1");
+    private final By femaleRad = By.id("csex2");
+    private final By heightTxt = By.id("cheightmeter");
+    private final By weightTxt = By.id("ckg");
+    private final By calculateBtn = By.xpath("//input[@value='Calculate']");
+    private final By resultLbl = By.className("bigtext");
 }
