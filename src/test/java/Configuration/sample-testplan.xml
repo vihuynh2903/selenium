@@ -1,15 +1,15 @@
 <suite name="demo">
     <test name="debug">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://www.calculator.net/bmi-calculator.html"/>
         <!--<classes>
             <class name = "TestCases.SampleTestSuite">
                 <methods>
                     <include name = "tc01"/>
                 </methods>
             </class>
-            <packages>
-                <package name = "TestCases"/>
-            </packages>
         </classes>-->
+
         <groups>
             <define name = "chrome-smoke">
                 <include name = "chrome"/>
@@ -19,5 +19,10 @@
                 <include name = "chrome-smoke"/>
             </run>
         </groups>
+
+        <packages>
+            <package name = "TestCases"/>
+        </packages>
+
     </test>
 </suite>

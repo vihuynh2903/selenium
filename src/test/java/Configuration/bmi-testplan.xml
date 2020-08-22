@@ -7,11 +7,11 @@
         </classes>
     </test>
 
-    <test name="Metric Unit Tests on Firefox">
+    <!--<test name="Metric Unit Tests on Firefox">
         <parameter name="browser" value="firefox"/>
         <parameter name="url" value="https://www.calculator.net/bmi-calculator.html"/>
         <classes>
             <class name="TestCases.BodyMassIndexTest"/>
         </classes>
-    </test>
+    </test>-->
 </suite>
