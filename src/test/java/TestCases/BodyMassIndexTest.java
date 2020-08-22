@@ -12,7 +12,6 @@ import static Supports.Browser.*;
 
 
 public class BodyMassIndexTest{
-
     @Parameters ({"browser","url"})
     @BeforeMethod
     public static void preCondition(String browser, String url){
@@ -29,5 +28,4 @@ public class BodyMassIndexTest{
         calculator.fillForm("26", "female", "153", "70");
         Assert.assertEquals(calculator.getResult(), "BMI = 29.9 kg/m2   (Overweight)");
     }
-
 }

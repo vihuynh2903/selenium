@@ -1,0 +1,23 @@
+<suite name="demo">
+    <test name="debug">
+        <!--<classes>
+            <class name = "TestCases.SampleTestSuite">
+                <methods>
+                    <include name = "tc01"/>
+                </methods>
+            </class>
+            <packages>
+                <package name = "TestCases"/>
+            </packages>
+        </classes>-->
+        <groups>
+            <define name = "chrome-smoke">
+                <include name = "chrome"/>
+                <include name = "smoke"/>
+            </define>
+            <run>
+                <include name = "chrome-smoke"/>
+            </run>
+        </groups>
+    </test>
+</suite>
